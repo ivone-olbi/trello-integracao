@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.ivone</groupId>
+  <artifactId>trello-integracao</artifactId>
+  <version>1.0.0</version>
+  
+  <properties>
+      <java.version>11</java.version>
+      <maven.compiler.source>${java.version}</maven.compiler.source>
+      <maven.compiler.target>${java.version}</maven.compiler.target>
+
+  	  <cucumber.version>6.5.0</cucumber.version>
+  	  <project-lombok>1.18.12</project-lombok>
+  	  <rest-assured.version>4.3.1</rest-assured.version>
+  </properties>
+
+  <dependencies>
+    <!-- Cucumber -->
+  	<dependency>
+    	<groupId>io.cucumber</groupId>
+    	<artifactId>cucumber-java</artifactId>
+    	<version>${cucumber.version}</version>
+    	<scope>test</scope>
+  	</dependency>
+  	<!-- Cucumber - JUnit-integration -->
+  	<dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- Project Lombok -->
+    <dependency>
+  		<groupId>org.projectlombok</groupId>
+  		<artifactId>lombok</artifactId>
+  		<version>${project-lombok}</version>
+  		<scope>provided</scope>
+	</dependency>
+	
+	<!-- PicoContainer -->
+	<dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-picocontainer</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- REST Assured -->
+	<dependency>
+	    <groupId>io.rest-assured</groupId>
+	    <artifactId>rest-assured</artifactId>
+	    <version>${rest-assured.version}</version>
+	    <scope>test</scope>
+	</dependency>    
+  </dependencies>
+</project>

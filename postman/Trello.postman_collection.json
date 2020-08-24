@@ -1,0 +1,1009 @@
+{
+	"info": {
+		"_postman_id": "a2329603-a959-432a-8a73-7cb3989b7a82",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Boards",
+			"item": [
+				{
+					"name": "Create a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "31ea7e1b-09e1-4549-98d7-e449dee1d8aa",
+								"exec": [
+									"let jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"idBoard\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/?key={{key}}&token={{token}}&name=Sensedia",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "Sensedia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84d0bdd8-f19b-46e5-a8d3-241863a7789e",
+								"exec": [
+									"let jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"idBoard\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{idBoard}}/?key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{idBoard}}",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lists on a Board",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{idBoard}}/lists/?key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{idBoard}}",
+								"lists",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.trello.com/1/boards/{{idBoard}}/lists/?key={{key}}&token={{token}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"trello",
+										"com"
+									],
+									"path": [
+										"1",
+										"boards",
+										"{{idBoard}}",
+										"lists",
+										""
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Surrogate-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, no-cache, no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00"
+								},
+								{
+									"key": "X-Trello-Version",
+									"value": "1.2196.0"
+								},
+								{
+									"key": "X-Trello-Environment",
+									"value": "Production"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, PUT, POST, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, Accept, Content-Type"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Max",
+									"value": "100"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Max",
+									"value": "300"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Remaining",
+									"value": "299"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Max",
+									"value": "200"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Remaining",
+									"value": "199"
+								},
+								{
+									"key": "X-Server-Time",
+									"value": "1598219638982"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Aug 2020 21:53:58 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Envoy-Upstream-Service-Time",
+									"value": "25"
+								},
+								{
+									"key": "Expect-Ct",
+									"value": "report-uri=\"https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge\", max-age=86400"
+								},
+								{
+									"key": "X-Logging-Id",
+									"value": "7a01fdce-4547-49f0-9059-3b05dad7c9ba"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Server",
+									"value": "globaledge-envoy"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"5f42e53b52207b84988914a1\",\n        \"name\": \"A fazer\",\n        \"closed\": false,\n        \"pos\": 16384,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    },\n    {\n        \"id\": \"5f42e53b52207b84988914a2\",\n        \"name\": \"Em andamento\",\n        \"closed\": false,\n        \"pos\": 32768,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    },\n    {\n        \"id\": \"5f42e53b52207b84988914a3\",\n        \"name\": \"Concluído\",\n        \"closed\": false,\n        \"pos\": 49152,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    }\n]"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7c9a26cd-7f5f-4a9a-9d9f-764540d00d6c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3924f80a-dedf-4091-b1a5-94e34f06f122",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Creat a new Card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?key={{key}}&token={{token}}&idList={{idList}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "idList",
+									"value": "{{idList}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards/{{idCard}}?key={{key}}&token={{token}}&desc=Sensedia+Ivone",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{idCard}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "desc",
+									"value": "Sensedia+Ivone"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Members",
+			"item": [
+				{
+					"name": "Get Boards that Member belongs to",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/members/{{user}}/boards/?key={{key}}&token={{token}}&name=Sensedia",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"members",
+								"{{user}}",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "Sensedia"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "testes-integrados",
+			"item": [
+				{
+					"name": "Deve permitir criar um quadro novo.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce0c887b-8a10-44a0-8748-5efbf071c56b",
+								"exec": [
+									"let jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is valid\", function() {\r",
+									"    pm.response.to.have.property(\"id\");\r",
+									"    pm.expect(jsonData.name).to.eql(\"Sensedia\");\r",
+									"    pm.expect(jsonData.desc).to.eql(\"\");\r",
+									"    pm.expect(jsonData.descData).to.be.null;\r",
+									"    pm.expect(jsonData.closed).to.be.false;\r",
+									"    pm.expect(jsonData.idOrganization).to.be.null;\r",
+									"    pm.expect(jsonData.idEnterprise).to.be.null;\r",
+									"    pm.expect(jsonData.pinned).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"board\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/?key={{key}}&token={{token}}&name=Sensedia+Ivone",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "Sensedia+Ivone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deve permitir visualizar as listas do quadro.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce7a676d-6524-49dc-a257-11b51e5293f1",
+								"exec": [
+									"let json = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is valid\", function() {\r",
+									"    pm.response.to.have.property(\"id\");\r",
+									"    pm.expect(json[0].name).to.eql(\"A fazer\");\r",
+									"    pm.expect(json[0].closed).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"list\", json[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board}}/lists/?key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board}}",
+								"lists",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.trello.com/1/boards/{{idBoard}}/lists/?key={{key}}&token={{token}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"trello",
+										"com"
+									],
+									"path": [
+										"1",
+										"boards",
+										"{{idBoard}}",
+										"lists",
+										""
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Surrogate-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, no-cache, no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00"
+								},
+								{
+									"key": "X-Trello-Version",
+									"value": "1.2196.0"
+								},
+								{
+									"key": "X-Trello-Environment",
+									"value": "Production"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, PUT, POST, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, Accept, Content-Type"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Max",
+									"value": "100"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Token-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Max",
+									"value": "300"
+								},
+								{
+									"key": "X-Rate-Limit-Api-Key-Remaining",
+									"value": "299"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Interval-Ms",
+									"value": "10000"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Max",
+									"value": "200"
+								},
+								{
+									"key": "X-Rate-Limit-Member-Remaining",
+									"value": "199"
+								},
+								{
+									"key": "X-Server-Time",
+									"value": "1598219638982"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Aug 2020 21:53:58 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Envoy-Upstream-Service-Time",
+									"value": "25"
+								},
+								{
+									"key": "Expect-Ct",
+									"value": "report-uri=\"https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge\", max-age=86400"
+								},
+								{
+									"key": "X-Logging-Id",
+									"value": "7a01fdce-4547-49f0-9059-3b05dad7c9ba"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Server",
+									"value": "globaledge-envoy"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"5f42e53b52207b84988914a1\",\n        \"name\": \"A fazer\",\n        \"closed\": false,\n        \"pos\": 16384,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    },\n    {\n        \"id\": \"5f42e53b52207b84988914a2\",\n        \"name\": \"Em andamento\",\n        \"closed\": false,\n        \"pos\": 32768,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    },\n    {\n        \"id\": \"5f42e53b52207b84988914a3\",\n        \"name\": \"Concluído\",\n        \"closed\": false,\n        \"pos\": 49152,\n        \"softLimit\": null,\n        \"idBoard\": \"5f42e53b52207b84988914a0\",\n        \"subscribed\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Deve permitir criar um cartão.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ec563842-d6c4-4b1a-987f-4adf5cdc5907",
+								"exec": [
+									"let json = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is valid\", function() {\r",
+									"    pm.response.to.have.property(\"id\");\r",
+									"    pm.expect(json.closed).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"card\", json.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?key={{key}}&token={{token}}&idList={{list}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "idList",
+									"value": "{{list}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deve permitir editar um cartão.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eba6ad58-8a93-47f7-9c5e-db2682819e28",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards/{{card}}?key={{key}}&token={{token}}&name=Sensedia",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{card}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "Sensedia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deve permitir excluir um quadro.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "799d6b7f-0b41-46f1-943e-b8862a38346b",
+								"exec": [
+									"let jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"idBoard\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board}}/?key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board}}",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b0903d60-c38d-4d0b-9f4e-e11db1634324",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "47fc1bf2-7dfb-4959-9ff6-62b9052fe32a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c8f1a863-91ca-46a7-b741-437e8be5cd85",
+			"key": "board",
+			"value": ""
+		},
+		{
+			"id": "5ef60e52-9a27-4964-a098-e7f54a0c7a36",
+			"key": "idList",
+			"value": ""
+		},
+		{
+			"id": "446e415d-ebe3-42aa-93b9-b53f193d8637",
+			"key": "idCard",
+			"value": ""
+		},
+		{
+			"id": "d46fc4b8-7956-45f5-ac1a-311eb2c195f4",
+			"key": "list",
+			"value": ""
+		},
+		{
+			"id": "23ecb408-6eaa-43b8-9ab2-a5cb27376871",
+			"key": "card",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
